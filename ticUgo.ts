@@ -14,7 +14,7 @@ function createGrid(n: number): string[][] {
   return emptyGrid;
 }
 
-// console.log(createGrid(3));
+// console.log(createGrid(4));
 
 // 2
 
@@ -43,7 +43,7 @@ function isEmpty(grid: string[][], line: number, column: number): boolean {
 function write(grid: string[][], line: number, column: number, symbol: string): string[][] {
     if ((line || column) < 0 || (line || column) > grid.length - 1) {
         grid[line][column] = "";
-    } else if (symbol = "X" || symbol = "O")) {
-        grid[line][column] = symbol;
-    } 
+    } else if (!(symbol = "X") || !(symbol = "O") || ) {
+        grid[line][column] = "";
+    }
 }
