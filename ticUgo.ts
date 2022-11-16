@@ -25,3 +25,25 @@ function lengthSide(grid: string[][]): number {
 // console.log(lengthSide(createGrid(5)));
 
 // 3
+
+function isEmpty(grid: string[][], line: number, column: number): boolean {
+  if ((line || column) < 0 || (line || column) > grid.length - 1) {
+    return false;
+  } else if (grid[line][column] === "") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// console.log(isEmpty(createGrid(5), 3, 4));
+
+// 4
+
+function write(grid: string[][], line: number, column: number, symbol: string): string[][] {
+    if ((line || column) < 0 || (line || column) > grid.length - 1) {
+        grid[line][column] = "";
+    } else if (symbol = "X" || symbol = "O")) {
+        grid[line][column] = symbol;
+    } 
+}
