@@ -73,7 +73,7 @@ function affiche(grille: Array<Array<string>>): any {
     process.stdin.write("\n");
   }
 }
-/* affiche(creeGrille(4)); */
+affiche(creeGrille(8));
 /* console.log(est(ecrire(creeGrille(4), 2, 1, "X"), 2, 1, "X")); */
 
 function main(): void {
@@ -95,4 +95,5 @@ function main(): void {
     );
   }
 }
-main();
+
+/* main(); */
