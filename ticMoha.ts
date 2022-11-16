@@ -38,7 +38,7 @@ function ecrire(
   if (estVide(grille, i, j) === false) {
     console.log("Pas Bon ");
   } else if (symbole != "O" && symbole != "X") {
-    console.log("Le Symbole ce n'est pas bon ");
+    console.log("Le Symbole n'est pas bon ");
   } else {
     grille[i][j] = symbole;
     return grille;
