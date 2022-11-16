@@ -103,10 +103,8 @@ function display(grid: string[][]): void {
 function main(): void {
   // Demander au joueur la taille de la grille
   let gridSize = Number(readlineSync.question("Quelle taille de grille souhaitez-vous ? "));
-  if (gridSize < 3) {
-    while (gridSize < 3) {
-      gridSize = Number(readlineSync.question("Quelle taille de grille souhaitez-vous ? "));
-    }
+  while (gridSize < 3) {
+    gridSize = Number(readlineSync.question("Quelle taille de grille souhaitez-vous ? "));
   }
 
   // Création de la grille
@@ -114,10 +112,9 @@ function main(): void {
 
   // Demander si la partie doit continuer
   let continueGame = readlineSync.question("On continue ? [O]ui ou [N]on : ");
-  if (continueGame != "O" && continueGame != "N") {
-    while (continueGame != "O" && continueGame != "N") {
-      continueGame = readlineSync.question("On continue ? [O]ui ou [N]on : ");
-    }
+
+  while (continueGame != "O" && continueGame != "N") {
+    continueGame = readlineSync.question("On continue ? [O]ui ou [N]on : ");
   }
 
   // Indiquer à quel joueur c'est le tour
@@ -136,13 +133,10 @@ function main(): void {
   // Demander la ligne où le joueur veut jouer
   function askLine(): number {
     let line = Number(readlineSync.question("Ligne ? "));
-    if (line > gridSize - 1 || line < 0) {
-      while (line > gridSize - 1 || line < 0) {
-        console.log(
-          "Votre valeur est soit négative, soit plus grande que la grille... réessayez !"
-        );
-        line = Number(readlineSync.question("Ligne ? "));
-      }
+
+    while (line > gridSize - 1 || line < 0) {
+      console.log("Votre valeur est soit négative, soit plus grande que la grille... réessayez !");
+      line = Number(readlineSync.question("Ligne ? "));
     }
     return line;
   }
@@ -150,13 +144,10 @@ function main(): void {
   // Demander la colonne où le joueur veut jouer
   function askColumn(): number {
     let column = Number(readlineSync.question("Colonne ? "));
-    if (column > gridSize - 1 || column < 0) {
-      while (column > gridSize - 1 || column < 0) {
-        console.log(
-          "Votre valeur est soit négative, soit plus grande que la grille... réessayez !"
-        );
-        column = Number(readlineSync.question("Colonne ? "));
-      }
+
+    while (column > gridSize - 1 || column < 0) {
+      console.log("Votre valeur est soit négative, soit plus grande que la grille... réessayez !");
+      column = Number(readlineSync.question("Colonne ? "));
     }
     return column;
   }
