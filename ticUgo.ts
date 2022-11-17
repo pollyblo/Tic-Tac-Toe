@@ -101,6 +101,9 @@ function display(grid: string[][]): void {
 // Main
 
 function main(): void {
+  let playerX = true;
+  let playerO = false;
+
   // Demander au joueur la taille de la grille
   let gridSize = Number(readlineSync.question("Quelle taille de grille souhaitez-vous ? "));
   while (gridSize < 3) {
@@ -118,8 +121,6 @@ function main(): void {
   }
 
   // Indiquer à quel joueur c'est le tour
-  let playerX = true;
-  let playerO = false;
   if (playerX && !playerO) {
     playerX = false;
     playerO = true;
@@ -130,31 +131,33 @@ function main(): void {
     console.log("C'est au tour de joueur O");
   }
 
+  let line;
+  let column;
   // Demander la ligne où le joueur veut jouer
-  function askLine(): number {
-    let line = Number(readlineSync.question("Ligne ? "));
-
-    while (line > gridSize - 1 || line < 0) {
-      console.log("Votre valeur est soit négative, soit plus grande que la grille... réessayez !");
+  do {
+    do {
       line = Number(readlineSync.question("Ligne ? "));
-    }
-    return line;
-  }
 
-  // Demander la colonne où le joueur veut jouer
-  function askColumn(): number {
-    let column = Number(readlineSync.question("Colonne ? "));
+      if (line > gridSize - 1 || line < 0) {
+        console.log("Mauvaise valeur! Réessayez...");
+      }
+    } while (line > gridSize - 1 || line < 0);
 
-    while (column > gridSize - 1 || column < 0) {
-      console.log("Votre valeur est soit négative, soit plus grande que la grille... réessayez !");
+    // Demander la colonne où le joueur veut jouer
+    do {
       column = Number(readlineSync.question("Colonne ? "));
-    }
-    return column;
-  }
 
-  if (isEmpty(newGrid, askLine(), askColumn())) {
-    console.log("C'EST VIDE");
-  }
+      if (column > gridSize - 1 || column < 0) {
+        console.log("Mauvaise valeur! Réessayez...");
+      }
+    } while (column > gridSize - 1 || column < 0);
+
+    if (!isEmpty(newGrid, line, column)) {
+      console.log("Cette cas a déjà été jouée!");
+    }
+  } while (!isEmpty(newGrid, line, column));
+
+  newGrid;
 }
 
 main();
